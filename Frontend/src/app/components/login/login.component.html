@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand pl-5" href="#"><img src="assets/popflix.png" alt="" style="width: 150px; height: 150px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link active text-white text-uppercase" aria-current="page" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-uppercase" routerLink="/coming">Upcoming</a>
+          </li>
+              <li class="nav-item">
+                <a class="nav-link text-white text-uppercase" routerLink="/signup">Create Account</a>
+              </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<hr style="color: aliceblue;">
+<div class="container-fluid" style="background-image: url(https://cdn.bfldr.com/SH6M70M3/as/xf3xhvhvggp2chnp6mshkfw/crowded_movie_theater_by_Erik_Witsoe.png?width=1200&height=800&fit=cover&auto=webp) ; background-position:130%;">
+    <div class="row no-gutter">
+    
+            <div class="login d-flex align-items-center py-5">
+
+            <div></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h4 style="color: aliceblue; font-size: xxx-large;">Please Login for your watchlist</h4>
+                            <br>
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group mb-3">
+                                    <input id="inputEmail" type="email" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <br>
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group mb-3">
+                                    <input id="inputPassword" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password is required</div>
+                                    </div>
+                                </div>
+                          <br>
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" routerLink="/login">Login</button>
+                                <br>
+                                <br>
+                                <a routerLink=""></a>
+                                <h1 style="color: aliceblue; font-size: medium;">dont have a account yet? </h1>
+                                
+                            </form>
+                            <button class="btn btn-secondary " routerLink="/signup"> create account </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    

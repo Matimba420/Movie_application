@@ -1,0 +1,131 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand pl-5" href="#"><img src="assets/popflix.png" alt=""
+                style="width: 150px; height: 150px"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto ">
+                <li class="nav-item">
+                    <a class="nav-link active text-white text-uppercase" aria-current="page" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase" routerLink="/coming">Upcoming</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase" routerLink="/login">Sign In</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<hr style="color: aliceblue;">
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card-body p-4 p-md-5 text-light">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" id="signup">Registration Form</h3>
+                    <form [formGroup]="signupForm" (ngSubmit)="signUp">
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <label class="form-label" for="name">First Name</label>
+                                    <input type="text" formControlName="name" id="name"
+                                        class="form-control rounded-pill border-0 shadow-sm" placeholder="First Name" />
+                                    <span class="text-danger"
+                                        *ngIf="signupForm.controls['name'].dirty && signupForm.hasError('required', 'name')">Name
+                                        is required</span>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <label class="form-label" for="surname">Last Name</label>
+                                    <input type="text" formControlName="surname" id="surname" placeholder="Last Name"
+                                        class="form-control rounded-pill border-0 shadow-sm" />
+                                    <span class="text-danger"
+                                        *ngIf="signupForm.controls['surname'].dirty && signupForm.hasError('required', 'surname')">
+                                        Last Name is required</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                            </div>
+                            <div class="col-md-6 mb-4">
+
+                                <h6 class="mb-2 pb-1">Gender: </h6>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" formControlName="inlineRadioOptions" type="radio"
+                                        name="inlineRadioOptions" id="femaleGender" value="Female" checked />
+                                    <label class="form-check-label" for="femaleGender">Female</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" formControlName="inlineRadioOptions" type="radio"
+                                        name="inlineRadioOptions" id="maleGender" value="Male" />
+                                    <label class="form-check-label" for="maleGender">Male</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" formControlName="inlineRadioOptions" type="radio"
+                                        name="inlineRadioOptions" id="otherGender" value="Other" />
+                                    <label class="form-check-label" for="otherGender">Other</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4 pb-2">
+
+                                <div class="form-outline">
+                                    <label class="form-label" for="emailAddress">Email</label>
+                                    <input type="email" formControlName="email" id="emailAddress" placeholder="Email"
+                                        class="form-control rounded-pill border-0 shadow-sm" />
+                                    <span class="text-danger"
+                                        *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required', 'email')">Email
+                                        is required</span>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-4 pb-2">
+
+                                <div class="form-outline">
+                                    <label class="form-label" for="pwd">Password</label>
+                                    <input type="password" formControlName="password" id="pwd" placeholder="Password"
+                                        class="form-control rounded-pill border-0 shadow-sm" />
+                                    <span class="text-danger"
+                                        *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required', 'password')">Password
+                                        required</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-2">
+                            <!-- <label for="submit">Sign Up</label> -->
+                            <button type="submit" [disabled]="!signupForm.invalid" (click)="signUp()"
+                                class="btn btn-info">Sign up</button>
+
+
+                        </div>
+                    </form>
+                    <a routerLink="/login">Already have an account? Login here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

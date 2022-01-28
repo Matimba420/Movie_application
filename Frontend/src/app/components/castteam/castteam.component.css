@@ -1,0 +1,6 @@
+.navbar-toggler{
+    background-color: rgba(182, 69, 69, 0.726);
+  }
+  .nav-item a:hover {
+    color: rgba(182, 69, 69, 0.726);
+  }
