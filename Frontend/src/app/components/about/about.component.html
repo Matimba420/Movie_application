@@ -14,9 +14,9 @@
           <a class="nav-link text-white text-uppercase" routerLink="/coming">Upcoming</a>
         </li>
         
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white text-uppercase" routerLink="/login">Watchlist</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -28,21 +28,24 @@
    <div class="row">
     <h1 style="color: aliceblue;"> {{currentMovie.title}}</h1>
     <hr style="color: ivory;">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="card" style="width: 17rem;" *ngIf="currentMovie">
-           <a routerLink="about"> <img src="https://image.tmdb.org/t/p/w500/{{ currentMovie.poster_path}}" class="card-img-top" alt="..."   > </a>
+           <a routerLink="about" > <img src="https://image.tmdb.org/t/p/w500/{{ currentMovie.poster_path}}" class="card-img-top" alt="..."> </a>
             
         </div>
       </div>
-<div class="col-md-6">
+<div class="col-md-8">
     <div class="card-body">
         <h3 style="align-items: flex-end; color: ivory; font-size: xx-large;" ></h3>
-        <br>
         
       <p class="card-text" style="color: rgb(207, 207, 207); font-size: x-large; ">{{ currentMovie.overview}} <br> <br> </p>
-      <P style="background-color: darkgray; font-size: larger;">⭐️ Ratings: {{ currentMovie.vote_average }}</P>
-      <!-- <a class="nav-link" routerLink="castR" style="color: ivory; font-size:xxx-large;">Top Cast</a> -->
-    
+      <P style="color: #000; font-size: x-large; background-color: darkgray;">Ratings: {{ currentMovie.vote_average }}</P>
+      <p class="card-text-date" style="color: rgb(207, 207, 207); font-size: x-large; ">Release Date: {{ currentMovie.release_date }}</p>
+      <p style="color: rgb(207, 207, 207); font-size: x-large;">Duration: {{ currentMovie.runtime}} minutes</p>
+      <p style="color: rgb(207, 207, 207); font-size: x-large;" *ngIf="!current_provided_movies">
+        Where to watch: Netflix </p>
+        <p style="color: rgb(207, 207, 207); font-size: x-large;" *ngIf="current_provided_movies">
+          Where to watch: {{current_provided_movies}} </p>
     </div>
 </div>
 
@@ -65,4 +68,5 @@
       </div>
       </div>
   </div>
+
 

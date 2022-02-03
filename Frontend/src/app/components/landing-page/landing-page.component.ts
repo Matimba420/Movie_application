@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/service/movie.service';
 import { Movie } from 'src/app/models/movie';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Providers } from 'src/app/models/providers';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,10 +11,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  // movies: Movie[] | any;
   latestMovies: any = [];
   currentMovie: Movie = {};
-  currentIndex=-1;
+
+  searchMovies: any = [];
+  search: Movie = {};
+  isSearchMovie: boolean = true;
+
+  currentIndex = -1;
+  title = '';
 
   constructor(private movieService: MovieService, private route: ActivatedRoute) { 
 
@@ -27,12 +33,31 @@ export class LandingPageComponent implements OnInit {
     this.movieService.getMovies().subscribe(
     (data: any) => {
       this.latestMovies = data.results;
-      console.log(data.results);
+      //console.log(data.results);
     });
   }
+
   setActive(latestMovies: Movie, index: number): void {
     this.currentMovie = latestMovies;
     this.currentIndex = index;
   }
- 
+
+  searchMovie(){
+    this.currentMovie = {};
+    this.currentIndex -1;
+
+    this.movieService.searchMovie(this.title).subscribe((res: any) => {
+      this.searchMovies = res.results;
+      if(this.searchMovie.length == 0)
+      {
+        this.isSearchMovie = false;
+      }
+      console.log(this.searchMovies);
+      // next: (data) => {
+      //   this.searchMovies = data.search;
+      //   console.log(this.searchMovies);
+      // },
+      // error: (e) => console.error(e)
+    });
+  }
 }
