@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { AboutComponent } from './components/about/about.component';
-import { CastteamComponent } from './components/castteam/castteam.component';
 import { UpcomingComponent } from './components/upcoming/upcoming.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LandingPageComponent,
     AboutComponent,
-    CastteamComponent,
     UpcomingComponent,
     RegisterComponent,
     LoginComponent,

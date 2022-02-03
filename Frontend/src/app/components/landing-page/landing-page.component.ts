@@ -11,11 +11,14 @@ import { Providers } from 'src/app/models/providers';
 })
 export class LandingPageComponent implements OnInit {
 
-  // movies: Movie[] | any;
   latestMovies: any = [];
   currentMovie: Movie = {};
-  
-  currentIndex=-1;
+
+  searchMovies: any = [];
+  search: Movie = {};
+  isSearchMovie: boolean = true;
+
+  currentIndex = -1;
   title = '';
 
   constructor(private movieService: MovieService, private route: ActivatedRoute) { 
@@ -33,6 +36,7 @@ export class LandingPageComponent implements OnInit {
       //console.log(data.results);
     });
   }
+
   setActive(latestMovies: Movie, index: number): void {
     this.currentMovie = latestMovies;
     this.currentIndex = index;
@@ -42,13 +46,18 @@ export class LandingPageComponent implements OnInit {
     this.currentMovie = {};
     this.currentIndex -1;
 
-    this.movieService.searchMovie(this.title).subscribe({
-      next: (data) => {
-        this.latestMovies = Object.values(data); 
-        console.log(this.latestMovies);
-        this.getMovies();
-      },
-      error: (e) => console.error(e)
-    })
+    this.movieService.searchMovie(this.title).subscribe((res: any) => {
+      this.searchMovies = res.results;
+      if(this.searchMovie.length == 0)
+      {
+        this.isSearchMovie = false;
+      }
+      console.log(this.searchMovies);
+      // next: (data) => {
+      //   this.searchMovies = data.search;
+      //   console.log(this.searchMovies);
+      // },
+      // error: (e) => console.error(e)
+    });
   }
 }
