@@ -9,9 +9,9 @@
         <li class="nav-item">
           <a class="nav-link text-white text-uppercase h4" routerLink="/coming">Upcoming</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link text-white text-uppercase h4" routerLink="/login">Watchlist</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -47,11 +47,14 @@
 
 <div class="search">
   <form class="d-flex m-4">
-    <input class="form-control me-2 bg-light" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-danger text-light" type="submit">Search</button>
+    <input class="form-control me-2 bg-light" type="search" 
+    placeholder="Search by title" aria-label="Search" [(ngModel)] = "title"
+    name="title">
+    <button class="btn btn-outline-danger text-light" type="submit" (click)="searchMovie()">Search</button>
   </form>
 </div>
-<hr style="color: aliceblue;">
+<hr style="color: aliceblue;"> 
+
 
 <section class="grid p-5">
   <h1 class="text-center" style="font-size: 30px; color: silver;">Popular Movies</h1>
@@ -62,16 +65,12 @@
                 <img routerLink="/about/{{latest.id}}" src="http://image.tmdb.org/t/p/w500/{{ latest.poster_path }}" class="card-img-top" routerLink="models" >
                 <div class="card-body">
                   <h5 class="card-title">{{latest.original_title}}</h5>
-                
                 </div>
               </div>
             </div>
           </div>
     </div>
-  
 </section>
-
-
 
 <footer class="bg-dark p-3">
 <div class="footer" >
